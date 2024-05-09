@@ -85,7 +85,7 @@ body {
     overflow: auto;
     height: 100%;
     padding: var(--paddingBig);
-  }
+}
 
 /*======================
 * NAVIGATION BAR
@@ -185,7 +185,7 @@ a.navtab.active {
 .splashimg {
     width:100%;
     height:700px;
-    background-image:url("gallery/splash.png");
+    background-image:url("gallery/splash.jpg");
     background-size:cover;
     background-position:center bottom;
     opacity:0.8;
@@ -316,7 +316,7 @@ a.navtab.active {
 .gallery-container {
     border:2px solid var(--dark);
     border-radius:15px;
-    padding:var(--paddingSmall);
+    padding:var(--paddingBig);
     padding-bottom:0;
 }
 
@@ -328,9 +328,59 @@ a.navtab.active {
 .pswp-gallery img {
     max-width:100%;
 }
+.pswp-gallery .grid-item span.caption {
+    -webkit-transition-delay: 0.5s; 
+    -moz-transition-delay: 0.5s; 
+    -ms-transition-delay: 0.5s; 
+    -o-transition-delay: 0.5s;  
+    transition-delay: 0.5s; 
+}
+
+.game-previews .pswp-gallery .grid-item span.caption {
+    -webkit-transition-delay: 0s; 
+    -moz-transition-delay: 0s; 
+    -ms-transition-delay: 0s; 
+    -o-transition-delay: 0s;  
+    transition-delay: 0s; 
+    display:none;
+}
+
+.pswp-gallery .grid-item:hover span.caption {
+    opacity:1;
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    -ms-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s;
+}
 
 .pswp-gallery span.caption {
-    display: none;
+    position: absolute;
+    display: block;
+    opacity: 0;
+    background: var(--bg);
+    padding: 2px;
+    z-index: 99;
+    top: var(--paddingBig);
+    left: var(--paddingBig);
+    border-radius: 5px;
+    color: var(--dark);
+}
+
+span.caption > span {
+    border: 2px solid var(--dark);
+    padding: var(--paddingSmall);
+    display: block;
+    border-radius: 5px;
+}
+
+span.caption > span::after {
+    content: "click for full size";
+    text-transform: uppercase;
+    display: block;
+    letter-spacing: .5px;
+    font: 600 0.7em/100% var(--fontBody);
+    margin-top: .1em;
 }
 
 button.pswp__button--test-button {
@@ -346,23 +396,138 @@ button.pswp__button--test-button {
 }
 
 .grid-sizer,
-.grid-item { 
-    width: calc(25% - 5px);
-    line-height: 0%;
-    margin-bottom:0.5%;
-    float:left;
+.grid-item { width: 24.25%;
+margin-bottom:.8%; }
+
+.gutter-sizer { width: 1%; }
+
+.grid-item--width2 { width: 49.5%; }
+.grid-item--width3 { width: 74.75%;}
+
+#gallery4 .gutter-sizer { width: 1%; }
+#gallery4 .grid-sizer, .grid-item--width2alt { width:calc( 98% / 3); }
+
+/*======================
+* GAME ABOUT / PREVIEWS
+========================*/
+
+.game-about {
+    border:2px solid var(--dark);
+    border-radius:15px;
+    padding:var(--paddingSmall);
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom:var(--paddingSmall);
+}
+.game-previews {
+    width: 50%;
+    padding:0.8% 0.8% 0 0.8%;
+    border-radius:10px 0 0 10px;
+    background-color: var(--dark);
+    align-self: stretch;
 }
 
-.gutter-sizer {
-  width: 5px;
+.game-previews .pswp-gallery {
+    border-radius: 0px;
 }
 
-.grid-item--width2 { width: calc(50% - 10px); }
-.grid-item--width3 { width: calc(75% - 10px); }
+.game-desc {
+    width: 50%;
+    border-left: 2px solid var(--dark);
+    margin-left: calc( var(--paddingSmall) / 2);
+  align-self: stretch;
+  padding-left: calc( var(--paddingSmall) / 2);
+  
+}
+  
+.game-desc h3 {
+background:var(--dark);
+color:var(--bg);
+background:var(--dark);
+    color:var(--bg);
+    font:400 22px/150% var(--fontBody);
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:8px;
+    letter-spacing: var(--spacingBig);
+    text-transform: uppercase;
+    border-radius:0 10px 10px 0;
+    margin:0;
+    padding:calc( var(--paddingSmall) / 2) var(--paddingSmall);
+    margin-bottom:5px;
+}
+.game-desc > span {
+    padding:var(--paddingSmall);
+    display:block;
+    white-space: pre-line;
+    text-align: justify;
+}
 
-.grid-item--height2 { height: 200px; }
-.grid-item--height3 { height: 260px; }
-.grid-item--height4 { height: 360px; }
+.game-desc span a {
+    font-style:italic;
+    color:var(--dark);
+}
+
+.game-desc span.excerpt {
+    border-left:2px solid var(--dark);
+    padding-left: 15px;
+    font-style: italic;
+    color:rgba(var(--darkRGB), .75);
+    margin-top:5px;
+}
+
+.game-links {
+    display:flex;
+    align-items:center;
+    padding-top:var(--paddingSmall);
+    gap:calc( var(--paddingSmall) / 2);
+    justify-content: flex-end;
+}
+
+.game-links::before {
+    content: "";
+    height: 2px;
+    width: 100%;
+    background: var(--dark);
+}
+
+.game-links button {
+    background: var(--dark);
+    color: var(--bg);
+    font: 700 1em/100% var(--fontBody);
+    padding: var(--paddingSmall);
+    border: 0px;
+    border-radius: 5px;
+    cursor:pointer;
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+b.tags {
+    border: 2px solid var(--dark);
+    border-radius: 0;
+    padding: calc(var(--paddingSmall) / 2.5) var(--paddingSmall);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85em;
+    line-height:250%;
+}
+
+b.tags:first-of-type {
+    background: var(--dark);
+    color: var(--bg);
+}
+
+b.tags:nth-of-type(2) {
+    background: rgba(var(--darkRGB), 0.15);
+}
+
+.excerpt b {
+    font-style: normal;
+}
 
 /*======================
 * GAME EMBEDS
@@ -373,7 +538,7 @@ button.pswp__button--test-button {
     height:500px;
 }
 
-.window#carni iframe {
+.window iframe {
     width:1250px;
     height:710px;
 }
@@ -385,7 +550,7 @@ button.pswp__button--test-button {
     width:100vw;
     height:100vh;
     position:absolute;
-    z-index:9;
+    z-index:99;
     display:none;
 }
 
@@ -395,7 +560,7 @@ button.pswp__button--test-button {
 
 .game-container .window {
     display:none;
-    z-index:10;
+    z-index:100;
     pointer-events: all;
 }
 
@@ -413,4 +578,119 @@ button.pswp__button--test-button {
 
 .game-container .window-container.open .window {
     display:flex;
+}
+.game-container .window h2 {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-container h2 span.clicktoclose {
+    cursor: pointer;
+}
+
+.misc-notif {
+    position: fixed;
+    top: 100px;
+    right: 0;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    z-index: 98;
+    transform:scale(1);
+    padding: 10px 20px;
+    background: var(--bg);
+    border: 2px solid var(--dark);
+    border-radius: 10px 0 0 10px;
+    border-right: 0px;
+    overflow: hidden;
+    width:350px;
+    text-align:center;
+}
+
+.misc-notif.hidden {
+    right:-355px;
+}
+
+.misc-notif::after {
+    content: "";
+    background-image: url("screentone.png");
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 100px;
+    display: block;
+    background-position: bottom;
+    background-size: 1000px auto;
+    pointer-events: none;
+    opacity: 1;
+    position: absolute;
+    right:0;
+    bottom:0;
+    mask-image: linear-gradient(-30deg, rgb(0 0 0 / 100%), transparent 50%, transparent);
+    opacity:.05;
+}
+
+/*======================
+* ILLUSTRATION TAB
+========================*/
+
+
+#illustration h3 {
+    background: var(--dark);
+    margin: 0;
+      margin-bottom: 0px;
+    margin-bottom: calc(var(--paddingSmall) / 2);
+    padding: var(--paddingBig);
+    color: var(--bg);
+    border-radius: 15px 15px 0 0;
+}
+
+#illustration .gallery-container {
+    border-radius: 0 0 15px 15px;
+    
+}
+
+#illustration .pswp-gallery {
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+#illustration h3 i {
+    display: block;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-style: normal;
+}
+
+.webdev {
+    border-radius: 15px;
+    z-index: 9;
+    position: absolute;
+    left: 20px;
+    width: 510px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    line-height: 150%;
+    text-align: justify;
+    bottom: 20px;
+    color: var(--bg);
+    display: flex;
+    flex-direction: column-reverse;
+    gap:10px;
+}
+.webdev a {
+    text-decoration: none;
+    color:inherit;
+    font-style:italic;
+}
+.webdev b {
+    display: block;
+    font-size:14px;
+}
+
+.webdev > span {
+    opacity:0.65;
+}
+
+.splash:hover .webdev > span {
+    opacity:1;
 }

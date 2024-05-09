@@ -1,12 +1,22 @@
+// =========================
+// PAGE NAVIGATION
+// =========================
+
 $( "a.navtab" ).on( "click", function() {
   $( "a.navtab" ).removeClass("active");
   $(".navbar").removeClass("scrolled");
   $(this).addClass("active");
   $('.content-scroll').scrollTop(0);
+
+  var currentPage = $(this).attr("href");
+  $(".content:not(" + currentPage + ")").removeClass("active");
+  $(".content" + currentPage).addClass("active");
 });
 
 $(function() {
   var url = window.location.href;
+  var currentPage = "#" + url.split("#")[1];
+  //console.log(currentPage);
   if ( url.toLowerCase().indexOf("illustration") >= 0 ) {
     $( "a.navtab[href*='illustration']" ).addClass("active");
   } else if ( url.toLowerCase().indexOf("gamedev") >= 0 ) {
@@ -14,18 +24,32 @@ $(function() {
   } else {
     $( "a.navtab[href*='home']" ).addClass("active");
   }
+  $(".content:not(" + currentPage + ")").removeClass("active");
+  $(".content" + currentPage).addClass("active");
 });
+
+// =========================
+// GAME EMBEDS
+// =========================
 
 $( "button.opengame" ).on( "click", function() {
   $( ".embed-overlay" ).addClass("open");
-  $( this ).siblings( ".window-container" ).addClass("open");
+  $( this ).parents().siblings( ".window-container" ).addClass("open");
 });
 
 $( ".embed-overlay" ).on( "click", function() {
   $( ".embed-overlay" ).removeClass("open");
   $( ".game-container .window-container" ).removeClass("open");
 });
+
+$( "span.clicktoclose" ).on( "click", function() {
+  $( ".embed-overlay" ).removeClass("open");
+  $( ".game-container .window-container" ).removeClass("open");
+});
  	
+// =========================
+// PAGE SCROLLING
+// =========================
 
 $( "#home .content-scroll" ).on( "scroll", function() {
    if ( $(this).scrollTop() > 80 ) {
@@ -51,8 +75,30 @@ $( "#gamedev .content-scroll" ).on( "scroll", function() {
   }
 });
 
+// =========================
+// CLICK REMINDER
+// =========================
+
+$( "#home .content-scroll" ).on( "scroll", function() {
+  if ( $(this).scrollTop() > 400 ) {
+    if ( !$(".misc-notif").hasClass("alreadyclicked")) {
+      $(".misc-notif").removeClass("hidden");
+    }
+  } else if ( $(this).scrollTop() < 400 ) {
+    $(".misc-notif").addClass("hidden");
+ } 
+});
+
+$( ".gallery-container" ).on( "click", function() {
+      $(".misc-notif").addClass("hidden alreadyclicked");
+});
+
+// =========================
+// LIGHTBOX GALLERY
+// =========================
+
 var lightbox = new PhotoSwipeLightbox({
-  gallery: '#gallery',
+  gallery: '#gallery, #gallery2, #gallery3, #gallery4, #gallery5',
   children: 'a',
   showHideAnimationType: 'none',
   zoomAnimationDuration: false,
@@ -109,20 +155,29 @@ $grid.imagesLoaded().progress( function() {
   $grid.masonry('layout');
 });
 
-$('.pswp-gallery').imagesLoaded().done( function( instance ) {
-  console.log('DONE  - all images have been successfully loaded');
-  //setTimeout(changeHeight, 500);
+// =========================
+// COMPATIBILITY / FIXES FOR
+// WINDOW RESIZING ETC
+// =========================
+
+$(window).resize(function() {
+    setTimeout(function() {
+        $grid.imagesLoaded().progress(function() {
+            $grid.masonry('layout');
+        });
+        restorePosition();
+    }, 300);
 });
 
-
-function changeHeight() {
-  var galleryHeight = $( ".pswp-gallery" ).height();
-  var gutterSize = $(".gutter-sizer").width();
-  $( ".pswp-gallery" ).height( galleryHeight - gutterSize );
+function restorePosition() {
+  var contentHeight = $(window).height(); // each content div is set to 100vh
+  var siblingsBefore = $(".content.active").prevUntil(".navbar")
+  var toScroll = 0;
+  $( siblingsBefore ).each(function() {
+    //toScroll += $(this).height();
+    //toScroll += 160;
+    //console.log( $(this).height() + " -> " + toScroll);
+    toScroll += contentHeight;
+  });
+  $(".wrapper").scrollTop( toScroll );
 }
-
-$(window).resize(function(){
-  $grid.masonry();
-  // need to figure this out again
-  // also properly resize the grids lmfao
-});
