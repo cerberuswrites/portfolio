@@ -166,11 +166,11 @@ $(window).resize(function() {
             $grid.masonry('layout');
         });
         restorePosition();
-    }, 300);
+    }, 400);
 });
 
 function restorePosition() {
-  var contentHeight = $(window).height(); // each content div is set to 100vh
+  var contentHeight = $(".content").height(); // each content div is set to 100vh
   var siblingsBefore = $(".content.active").prevUntil(".navbar")
   var toScroll = 0;
   $( siblingsBefore ).each(function() {

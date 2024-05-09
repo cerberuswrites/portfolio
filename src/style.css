@@ -65,7 +65,7 @@ body {
 
 .wrapper {
     width:90vw;
-    height:100vh;
+    height:calc(100vh - 80px);
     min-width:600px;
     max-width:1800px;
     border-left:2px solid var(--dark);
@@ -76,9 +76,9 @@ body {
 }
 
 .content {
-    height:100vh;
+    height:calc(100vh - 80px);
     overflow:hidden;
-    border-top:80px solid transparent;
+    /*border-top:80px solid transparent;*/
 }
 
 .content-scroll {
@@ -93,7 +93,7 @@ body {
 
 .navbar {
     height:80px;
-    width:calc(90vw - 2px);
+    width:90vw;
     min-width:600px;
     max-width:1800px;
     border-bottom:2px solid var(--dark);
@@ -102,8 +102,12 @@ body {
     align-items: center;
     padding:var(--paddingBig);
     z-index:9;
-    position:fixed;
-    top:0;
+    /*position:fixed;
+    top:0;*/
+    transform:scale(1);
+    margin:0 auto;
+    border-left:2px solid var(--dark);
+    border-right:2px solid var(--dark);
 }
 
 .navbar::before {
