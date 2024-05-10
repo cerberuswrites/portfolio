@@ -87,9 +87,12 @@ body {
     width: 90vw;
     min-width: 600px;
     max-width: 1800px;
+    display:none;
     /*border-top:80px solid transparent;*/
 }
-
+.content.active {
+    display:block;
+}
 .content-scroll {
     overflow: auto;
     height: 100%;
@@ -335,7 +338,6 @@ a.navtab.active {
     border:2px solid var(--dark);
     border-radius:15px;
     padding:var(--paddingBig);
-    padding-bottom:0;
 }
 
 .pswp-gallery {
@@ -407,13 +409,7 @@ button.pswp__button--test-button {
     color: #fff;
  }
 
-.pswp-gallery:after {
-    content: '';
-    display: block;
-    clear: both;
-}
-
-.grid-sizer,
+/* .grid-sizer,
 .grid-item { width: 24.25%;
 margin-bottom:.8%; }
 
@@ -423,7 +419,7 @@ margin-bottom:.8%; }
 .grid-item--width3 { width: 74.75%;}
 
 #gallery4 .gutter-sizer { width: 1%; }
-#gallery4 .grid-sizer, .grid-item--width2alt { width:calc( 98% / 3); }
+#gallery4 .grid-sizer, .grid-item--width2alt { width:calc( 98% / 3); }*/
 
 /*======================
 * GAME ABOUT / PREVIEWS
@@ -440,7 +436,7 @@ margin-bottom:.8%; }
 }
 .game-previews {
     width: 50%;
-    padding:0.8% 0.8% 0 0.8%;
+    padding:10px;
     border-radius:10px 0 0 10px;
     background-color: var(--dark);
     align-self: stretch;
@@ -723,3 +719,110 @@ b.tags:nth-of-type(2) {
 .splash:hover .webdev > span {
     opacity:1;
 }
+
+
+/*======================
+* GALLERY REDUX
+========================*/
+ 
+
+.pswp-gallery {
+    display: grid;
+	grid-gap: 5px;
+	grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+	grid-auto-rows: 0.5fr;
+	grid-auto-flow: dense;
+}
+
+.pswp-gallery .grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow:hidden;
+}
+
+.pswp-gallery .grid-item--width3 {
+    grid-column: span 3;
+    grid-row: span 2;
+}
+
+.pswp-gallery .grid-item--width3narrow {
+    grid-column: span 3;
+}
+
+.pswp-gallery .grid-item--width2 {
+    grid-column: span 2;
+}
+
+.pswp-gallery#gallery4 {
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: 1fr;
+	grid-auto-flow: dense;
+}
+
+.pswp-gallery .grid-item--vertical {
+    grid-row: span 3;
+}
+
+.pswp-gallery .grid-item--verticalsmall {
+    grid-row: span 2;
+}
+
+.pswp-gallery .grid-item > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.grid-item:hover img {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+
+/* .pswp-gallery img {
+    width: 100%;
+    height: auto !important;
+}
+
+  .pswp-gallery .grid-item--width3 img {
+    width:200%;
+  }
+  
+  
+  @media (max-width: 1200px) {
+    .pswp-gallery {
+    -moz-column-count:    4;
+    -webkit-column-count: 4;
+    column-count:         4;
+    }
+  }
+  @media (max-width: 1000px) {
+    .pswp-gallery {
+    -moz-column-count:    3;
+    -webkit-column-count: 3;
+    column-count:         3;
+    }
+  }
+  @media (max-width: 800px) {
+    .pswp-gallery {
+    -moz-column-count:    2;
+    -webkit-column-count: 2;
+    column-count:         2;
+    }
+  }
+  @media (max-width: 400px) {
+    .pswp-gallery {
+    -moz-column-count:    1;
+    -webkit-column-count: 1;
+    column-count:         1;
+    }
+  }
+
+  */
+
+  #pswp__items {
+    transition-duration: .6s;
+  }
+
+  .pswp__item {
+    transition:none;
+  }

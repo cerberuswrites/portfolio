@@ -98,6 +98,7 @@ $( ".gallery-container" ).on( "click", function() {
 // LIGHTBOX GALLERY
 // =========================
 
+
 var lightbox = new PhotoSwipeLightbox({
   gallery: '#gallery, #gallery2, #gallery3, #gallery4, #gallery5',
   children: 'a',
@@ -140,21 +141,7 @@ lightbox.on('uiRegister', function() {
     }
   });
 });
-lightbox.init();
-
-var $grid = $('.pswp-gallery').masonry({
-  // options
-  itemSelector: '.grid-item',
-  columnWidth: '.grid-sizer',
-  gutter: '.gutter-sizer',
-  horizontalOrder: false,
-  percentPosition: true
-});
-
-// layout Masonry after each image loads
-$grid.imagesLoaded().progress( function() {
-  $grid.masonry('layout');
-});
+lightbox.init(); 
 
 // =========================
 // COMPATIBILITY / FIXES FOR
@@ -163,26 +150,10 @@ $grid.imagesLoaded().progress( function() {
 
 $(window).resize(function() {
     setTimeout(function() {
-        $grid.imagesLoaded().progress(function() {
-            $grid.masonry('layout');
-        });
-        restorePosition();
+        //restorePosition();
         resizeEmbed();
     }, 400);
 });
-
-/* function restorePosition() {
-  var contentHeight = $(".content").height(); // each content div is set to 100vh
-  var siblingsBefore = $(".content.active").prevUntil(".navbar")
-  var toScroll = 0;
-  $( siblingsBefore ).each(function() {
-    //toScroll += $(this).height();
-    //toScroll += 160;
-    //console.log( $(this).height() + " -> " + toScroll);
-    toScroll += contentHeight;
-  });
-  $(".wrapper").scrollTop( toScroll );
-} */
 
 function restorePosition() {
   var contentWidth = $(".content").width();
