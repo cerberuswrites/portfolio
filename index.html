@@ -16,7 +16,6 @@
 </head>
 <body>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  
   <script src="./src/plugins/photoswipe-lightbox.umd.min.js"></script>
   <script src="./src/plugins/photoswipe.umd.min.js"></script>
   <script src="./src/plugins/photoswipe-dynamic-caption-plugin.umd.min.js"></script>
@@ -57,14 +56,14 @@
   <!-- ================== DIVIDER ================== -->
 
   <!-- HOMEPAGE BLOCK START -->
-  <div class="content" id="home">
+  <div class="content active" id="home">
     <div class="content-scroll">
     <div class="splash">
 
       <div class="splashimg"></div>
 
       <div class="webdev"><b>Best viewed on modern browsers with a screen resolution of 1300px or more.</b>
-        <span>Coded and designed by Ray Chia. Additional resources from: Cappuccino Icons by <a href="https://cappuccicons.com/">Solange Rainha</a>, Photoswipe (Javascript library) by <a href="https://photoswipe.com/">Dmytro Semenov</a>, & Masonry (Javascript library) by <a href="https://masonry.desandro.com/">David DeSandro</a>.</span>
+        <span>Coded and designed by Ray Chia. Additional resources from: Cappuccino Icons by <a href="https://cappuccicons.com/">Solange Rainha</a> & Photoswipe (Javascript library) by <a href="https://photoswipe.com/">Dmytro Semenov</a>.</span>
       </div>
 
       <div class="window">
@@ -82,8 +81,6 @@
 
     <div class="gallery-container">
       <div class="pswp-gallery" id="gallery">
-        <div class="grid-sizer"></div>
-        <div class="gutter-sizer"></div>
   
         
         <a class="grid-item grid-item--width3" href="./src/gallery/zugzsplash.jpg" data-pswp-width="3000" data-pswp-height="1689" target="_blank">
@@ -93,23 +90,26 @@
         <a class="grid-item" href="./src/gallery/selwyn.jpg" data-pswp-width="3000" data-pswp-height="3000" target="_blank">
           <img src="./src/gallery/selwyn.jpg" alt="" />
         </a>
-        
+        <a class="grid-item" href="./src/gallery/sef2.jpg" data-pswp-width="3000" data-pswp-height="3000" target="_blank">
+          <img src="./src/gallery/sef2.jpg" alt="" />
+        </a>
+
         <a class="grid-item grid-item--width2" href="./src/gallery/zugzyconvo.jpg" data-pswp-width="3000" data-pswp-height="1689" target="_blank">
           <img src="./src/gallery/zugzyconvo.jpg" alt="" />
           
         </a>
         
-        <a class="grid-item grid-item" href="./src/gallery/chesspreview.jpg" data-pswp-width="3000" data-pswp-height="2013" target="_blank">
+        <a class="grid-item grid-item--width2" href="./src/gallery/chesspreview.jpg" data-pswp-width="3000" data-pswp-height="2013" target="_blank">
           <img src="./src/gallery/chesspreview.jpg" alt="" />
           
         </a>
   
-        <a class="grid-item grid-item--width2" href="./src/gallery/kriegposter_crop.jpg" data-pswp-width="2000" data-pswp-height="3056" target="_blank">
+        <a class="grid-item grid-item--width2 grid-item--vertical" href="./src/gallery/kriegposter_crop.jpg" data-pswp-width="2000" data-pswp-height="3056" target="_blank">
           <img src="./src/gallery/kriegposter_crop.jpg" alt="" />
           
         </a>
   
-        <a class="grid-item" href="./src/gallery/flashback_madschess.jpg" data-pswp-width="3000" data-pswp-height="1729" target="_blank">
+        <a class="grid-item grid-item--width2" href="./src/gallery/flashback_madschess.jpg" data-pswp-width="3000" data-pswp-height="1729" target="_blank">
           <img src="./src/gallery/flashback_madschess.jpg" alt="" />
           
         </a>
@@ -129,9 +129,7 @@
           
         </a>
         
-        <a class="grid-item" href="./src/gallery/sef2.jpg" data-pswp-width="3000" data-pswp-height="3000" target="_blank">
-          <img src="./src/gallery/sef2.jpg" alt="" />
-        </a>
+       
         
         <a class="grid-item grid-item--width3" href="./src/gallery/maddox.jpg" data-pswp-width="1800" data-pswp-height="1013" target="_blank">
           <img src="./src/gallery/maddox.jpg" alt="" />
@@ -142,11 +140,11 @@
           <img src="./src/gallery/amari.jpg" alt="" />
         </a>
         
-        <a class="grid-item" href="./src/gallery/clair.jpg" data-pswp-width="2453" data-pswp-height="2860" target="_blank">
+        <a class="grid-item grid-item--verticalsmall" href="./src/gallery/clair.jpg" data-pswp-width="2453" data-pswp-height="2860" target="_blank">
           <img src="./src/gallery/clair.jpg" alt="" />
         </a>
         
-        <a class="grid-item" href="./src/gallery/sef.jpg" data-pswp-width="2521" data-pswp-height="2938" target="_blank">
+        <a class="grid-item grid-item--verticalsmall" href="./src/gallery/sef.jpg" data-pswp-width="2521" data-pswp-height="2938" target="_blank">
           <img src="./src/gallery/sef.jpg" alt="" />
         </a>
         
@@ -165,7 +163,7 @@
           
         </a>
         
-        <a class="grid-item grid-item--width2" href="./src/gallery/splash.jpg" data-pswp-width="3617" data-pswp-height="1567" target="_blank">
+        <a class="grid-item grid-item--width3narrow" href="./src/gallery/splash.jpg" data-pswp-width="3617" data-pswp-height="1567" target="_blank">
           <img src="./src/gallery/splash.jpg" alt="" />
           
         </a>
@@ -185,8 +183,6 @@
     
       <div class="gallery-container">
         <div class="pswp-gallery" id="gallery5">
-          <div class="grid-sizer"></div>
-          <div class="gutter-sizer"></div>
     
           
           <a class="grid-item grid-item--width3" href="./src/gallery/ZUGZY_SPLASH2_overlay.jpg" data-pswp-width="5000" data-pswp-height="3700" target="_blank">
@@ -197,10 +193,12 @@
             <img src="./src/gallery/selwyn.jpg" alt="" />
           </a>
           
-    
+          <a class="grid-item" href="./src/gallery/sef2.jpg" data-pswp-width="3000" data-pswp-height="3000" target="_blank">
+            <img src="./src/gallery/sef2.jpg" alt="" />
+          </a>
           
     
-          <a class="grid-item" href="./src/gallery/flashback_madschess.jpg" data-pswp-width="3000" data-pswp-height="1729" target="_blank">
+          <a class="grid-item grid-item--width2" href="./src/gallery/flashback_madschess.jpg" data-pswp-width="3000" data-pswp-height="1729" target="_blank">
             <img src="./src/gallery/flashback_madschess.jpg" alt="" />
             
           </a>
@@ -209,17 +207,16 @@
 
           
           
-          <a class="grid-item" href="./src/gallery/bg_party_crimescene.jpg" data-pswp-width="2439" data-pswp-height="1406" target="_blank">
+          <a class="grid-item grid-item--width2" href="./src/gallery/bg_party_crimescene.jpg" data-pswp-width="2439" data-pswp-height="1406" target="_blank">
             <img src="./src/gallery/bg_party_crimescene.jpg" alt="" />
             
           </a>
           
-          <a class="grid-item" href="./src/gallery/sef2.jpg" data-pswp-width="3000" data-pswp-height="3000" target="_blank">
-            <img src="./src/gallery/sef2.jpg" alt="" />
-          </a>
+          
 
-          <a class="grid-item grid-item--width2" href="./src/gallery/kriegposter_crop.jpg" data-pswp-width="2000" data-pswp-height="3056" target="_blank">
+          <a class="grid-item grid-item--width2 grid-item--vertical" href="./src/gallery/kriegposter_crop.jpg" data-pswp-width="2000" data-pswp-height="3056" target="_blank">
             <img src="./src/gallery/kriegposter_crop.jpg" alt="" />
+            
           </a>
           
           
@@ -228,11 +225,11 @@
             <img src="./src/gallery/amari.jpg" alt="" />
           </a>
           
-          <a class="grid-item" href="./src/gallery/clair.jpg" data-pswp-width="2453" data-pswp-height="2860" target="_blank">
+          <a class="grid-item grid-item--verticalsmall" href="./src/gallery/clair.jpg" data-pswp-width="2453" data-pswp-height="2860" target="_blank">
             <img src="./src/gallery/clair.jpg" alt="" />
           </a>
           
-          <a class="grid-item" href="./src/gallery/sef.jpg" data-pswp-width="2521" data-pswp-height="2938" target="_blank">
+          <a class="grid-item grid-item--verticalsmall" href="./src/gallery/sef.jpg" data-pswp-width="2521" data-pswp-height="2938" target="_blank">
             <img src="./src/gallery/sef.jpg" alt="" />
           </a>
           
@@ -248,7 +245,7 @@
             
           </a>
 
-          <a class="grid-item grid-item--width2" href="./src/gallery/splash.jpg" data-pswp-width="3617" data-pswp-height="1567" target="_blank">
+          <a class="grid-item grid-item--width3narrow" href="./src/gallery/splash.jpg" data-pswp-width="3617" data-pswp-height="1567" target="_blank">
             <img src="./src/gallery/splash.jpg" alt="" />
             
           </a>
@@ -293,10 +290,7 @@
 
 
             <div class="pswp-gallery" id="gallery2">
-              <div class="grid-sizer"></div>
-              <div class="gutter-sizer"></div>
         
-              
               <a class="grid-item grid-item--width3" href="./src/gallery/zugzsplash.jpg" data-pswp-width="3000" data-pswp-height="1689" target="_blank">
                 <img src="./src/gallery/zugzsplash.jpg" alt="" />
                 <span class="caption">
@@ -347,10 +341,7 @@
 
 
             <div class="pswp-gallery" id="gallery3">
-              <div class="grid-sizer"></div>
-              <div class="gutter-sizer"></div>
-        
-
+    
               <a class="grid-item grid-item--width3" href="./src/gallery/carni4.png" data-pswp-width="1257" data-pswp-height="728" target="_blank">
                 <img src="./src/gallery/carni4.png" alt="" />
               </a>
@@ -409,9 +400,6 @@
 
 
             <div class="pswp-gallery" id="gallery4">
-              <div class="grid-sizer"></div>
-              <div class="gutter-sizer"></div>
-        
               
               <a class="grid-item grid-item--width2alt" href="./src/gallery/wwm1.png" data-pswp-width="913" data-pswp-height="839" target="_blank">
                 <img src="./src/gallery/wwm1.png" alt="" />
@@ -420,14 +408,14 @@
                 </span>
               </a>
               
-              <a class="grid-item grid-item--width2alt" href="./src/gallery/wwm2.png" data-pswp-width="913" data-pswp-height="839" target="_blank">
+              <a class="grid-item" href="./src/gallery/wwm2.png" data-pswp-width="913" data-pswp-height="839" target="_blank">
                 <img src="./src/gallery/wwm2.png" alt="" />
                 <span class="caption">
                   <span>A snippet of prose, using the main Twine engine.</span>
                 </span>
               </a>
 
-              <a class="grid-item grid-item--width2alt" href="./src/gallery/wwm4.png" data-pswp-width="913" data-pswp-height="839" target="_blank">
+              <a class="grid-item" href="./src/gallery/wwm4.png" data-pswp-width="913" data-pswp-height="839" target="_blank">
                 <img src="./src/gallery/wwm4.png" alt="" />
                 <span class="caption">
                   <span>A stage coded using the Bitsy engine, allowing the player to interact more freely with the world outside the dialogue.</span>
