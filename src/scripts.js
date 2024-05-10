@@ -16,13 +16,14 @@ $( "a.navtab" ).on( "click", function() {
 $(function() {
   var url = window.location.href;
   var currentPage = "#" + url.split("#")[1];
-  //console.log(currentPage);
+  console.log(currentPage);
   if ( url.toLowerCase().indexOf("illustration") >= 0 ) {
     $( "a.navtab[href*='illustration']" ).addClass("active");
   } else if ( url.toLowerCase().indexOf("gamedev") >= 0 ) {
     $( "a.navtab[href*='gamedev']" ).addClass("active");
   } else {
     $( "a.navtab[href*='home']" ).addClass("active");
+    currentPage = "#home";
   }
   $(".content:not(" + currentPage + ")").removeClass("active");
   $(".content" + currentPage).addClass("active");
