@@ -35,6 +35,7 @@ $(function() {
 $( "button.opengame" ).on( "click", function() {
   $( ".embed-overlay" ).addClass("open");
   $( this ).parents().siblings( ".window-container" ).addClass("open");
+  resizeEmbed();
 });
 
 $( ".embed-overlay" ).on( "click", function() {
@@ -166,10 +167,11 @@ $(window).resize(function() {
             $grid.masonry('layout');
         });
         restorePosition();
+        resizeEmbed();
     }, 400);
 });
 
-function restorePosition() {
+/* function restorePosition() {
   var contentHeight = $(".content").height(); // each content div is set to 100vh
   var siblingsBefore = $(".content.active").prevUntil(".navbar")
   var toScroll = 0;
@@ -180,4 +182,38 @@ function restorePosition() {
     toScroll += contentHeight;
   });
   $(".wrapper").scrollTop( toScroll );
+} */
+
+function restorePosition() {
+  var contentWidth = $(".content").width();
+  var siblingsBefore = $(".content.active").prevAll();
+  var toScroll = 0;
+  $( siblingsBefore ).each(function() {
+    toScroll += contentWidth;
+  });
+  $(".wrapper").scrollLeft( toScroll );
+}
+
+// =========================
+// IFRAME RESIZING
+// =========================
+
+
+function resizeEmbed() {
+  const minScale = 0.8;
+  const maxScale = 1;
+  const embedMargin = 80;
+
+  var embedHeight = $(".game-container .window-container .window").height();
+  var embedWidth = $(".game-container .window-container .window").width();
+
+  var scale = $(window).height() / ( embedHeight + embedMargin );
+  var scaleWidth = $(window).width() / ( embedWidth + embedMargin );
+
+
+  scale = Math.min(maxScale, Math.max(minScale, scale));
+  scaleWidth = Math.min(maxScale, Math.max(minScale, scaleWidth));
+  scale = Math.min(scale, scaleWidth);
+  
+  document.documentElement.style.setProperty("--embedScale", scale);
 }
